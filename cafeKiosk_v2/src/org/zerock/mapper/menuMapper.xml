@@ -26,6 +26,7 @@ where mno = #{mno} </delete>
 
 <select id="getList" resultType="MenuVO">
 select * from tbl_menu
+where sno = #{sno}
 </select> 
 
 </mapper>

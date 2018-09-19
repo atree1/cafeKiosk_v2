@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.zerock.domain.MenuVO;
+import org.zerock.domain.PageDTO;
 
 public class MenuDAO {
 	private String prefix ="org.zerock.mapper.menuMapper";
@@ -52,6 +53,17 @@ public class MenuDAO {
 		try(SqlSession session = MyBatisLoader.sqlSessionFactory.openSession(true)){
 			
 		list = session.selectList(prefix+".getList",sno);
+			
+		}catch(Exception e) {e.printStackTrace();}
+		
+		return list;
+	} 
+public List<MenuVO> getPageList(PageDTO pageDTO){ 
+		
+		List<MenuVO> list = new ArrayList<>();
+		try(SqlSession session = MyBatisLoader.sqlSessionFactory.openSession(true)){
+			
+		list = session.selectList(prefix+".getListPage",pageDTO);
 			
 		}catch(Exception e) {e.printStackTrace();}
 		

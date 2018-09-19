@@ -25,6 +25,7 @@ public class MyBatisLoader {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+				
 	}
 
 

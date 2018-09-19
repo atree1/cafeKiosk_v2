@@ -1,5 +1,8 @@
 package org.zerock.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.zerock.domain.MenuVO;
 
@@ -39,10 +42,19 @@ public class MenuDAO {
 			
 			session.delete(prefix+".deleteMenu", mno);
 			
-		}catch(Exception e) {
-			e.printStackTrace();
-		
+		}catch(Exception e) {e.printStackTrace();}
+	
 	}
+	
+	public List<MenuVO> getList(){
 		
-	}
+		List<MenuVO> list = new ArrayList<>();
+		try(SqlSession session = MyBatisLoader.sqlSessionFactory.openSession(true)){
+			
+		list = session.selectList(prefix+".getList");
+			
+		}catch(Exception e) {e.printStackTrace();}
+		
+		return list;
+	} 
 }

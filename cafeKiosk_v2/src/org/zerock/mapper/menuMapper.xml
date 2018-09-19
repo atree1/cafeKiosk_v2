@@ -23,4 +23,9 @@ where mno = #{mno}
 delete from tbl_menu
 where mno = #{mno} </delete>
 
+
+<select id="getList" resultType="MenuVO">
+select * from tbl_menu
+</select>
+
 </mapper>

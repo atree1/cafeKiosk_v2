@@ -29,4 +29,19 @@ select * from tbl_menu
 where sno = #{sno}
 </select> 
 
+<select id="getListPage" parameterType="PageDTO" resultType="MenuVO">
+  <![CDATA[
+select *
+from
+    (select
+    /*+INDEX_DESC(tbl_menu pk_menu) */
+    ROWNUM rn ,mno,sno,price,menu,img
+    from tbl_menu
+    where mno>0 
+    and rownum <=(#{page}*#{size}))
+where rn>(#{page}-1)*#{size});
+]]>
+</select>
+
+
 </mapper>

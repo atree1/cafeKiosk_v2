@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.zerock.dao.MenuDAO;
 import org.zerock.domain.MenuVO;
 
+import util.Converter;
+
 @WebServlet(urlPatterns = "/store/*")
 public class StoreController extends AbstractController {
 	int sno=1;
@@ -24,7 +26,7 @@ public class StoreController extends AbstractController {
 		String menu = req.getParameter("menu");
 		String priceStr = req.getParameter("price");
 	
-		int price = Integer.parseInt(priceStr);
+		int price = Converter.getInt(priceStr, -1);
 
 		MenuVO vo = new MenuVO();
 		
@@ -54,7 +56,7 @@ public class StoreController extends AbstractController {
 	public String modifyGET(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		System.out.println("modifyGET.......................");
 		String mnoStr = req.getParameter("mno");
-		int mno = Integer.parseInt(mnoStr);
+		int mno = Converter.getInt(mnoStr,-1);
 		req.setAttribute("menu", dao.getMenu(mno));
 		return "modify";
 	}
@@ -66,8 +68,8 @@ public class StoreController extends AbstractController {
 		String menu = req.getParameter("menu");
 		String img = req.getParameter("img");
 		String priceStr = req.getParameter("price");
-		int mno = Integer.parseInt(mnoStr);
-		int price = Integer.parseInt(priceStr);
+		int mno =Converter.getInt(mnoStr,-1);
+		int price = Converter.getInt(priceStr,-1);
 
 		MenuVO vo = new MenuVO();
 		vo.setMno(mno);
@@ -85,7 +87,7 @@ public class StoreController extends AbstractController {
 	 public String removePOST(HttpServletRequest req, HttpServletResponse resp)throws Exception{
 	        System.out.println("REMOVE POST.......................");
 	        String mnoStr=req.getParameter("mno");
-	        int mno=Integer.parseInt(mnoStr);
+	        int mno=Converter.getInt(mnoStr,-1);
 	        dao.deleteMenu(mno);
 	        //resp.sendRedirect("/board/list");
 	        return  "redirect:/store/list";

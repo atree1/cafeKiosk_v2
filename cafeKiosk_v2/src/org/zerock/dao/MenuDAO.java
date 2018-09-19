@@ -57,4 +57,15 @@ public class MenuDAO {
 		
 		return list;
 	} 
+	
+	
+	public void addMenu(MenuVO vo) {
+		
+		try(SqlSession session = MyBatisLoader.sqlSessionFactory.openSession(true)){
+			
+			session.insert(prefix+".addMenu",vo);
+			
+		}catch(Exception e) {e.printStackTrace();}
+		
+	}
 }

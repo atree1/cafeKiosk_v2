@@ -8,7 +8,7 @@ select * from tbl_menu
 where mno=#{mno}
 </select>
 
-<insert id="create" parameterType="MenuVO">
+<insert id="addMenu" parameterType="MenuVO">
 insert into tbl_menu(mno, sno, menu, price, img)
 values (seq_menu.nextval,#{sno}, #{menu},#{price},#{img})
 </insert>

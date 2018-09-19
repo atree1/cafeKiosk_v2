@@ -46,7 +46,7 @@ public class MenuDAO {
 	
 	}
 	
-	public List<MenuVO> getList(){
+	public List<MenuVO> getList(){ 
 		
 		List<MenuVO> list = new ArrayList<>();
 		try(SqlSession session = MyBatisLoader.sqlSessionFactory.openSession(true)){

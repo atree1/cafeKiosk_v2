@@ -2,11 +2,11 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.zerock.mapper.storeMapper">
+<mapper namespace="org.zerock.mapper.StoreMapper">
 
-<select id="getStore" resultType="int">
+<select id="getStore" resultType="StoreVO">
 select * from tbl_store
-where sno = #{sno};
+where sno = #{sno}
 </select>
 
 </mapper>

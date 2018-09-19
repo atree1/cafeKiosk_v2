@@ -2,12 +2,27 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 	private static final String INSERT ="insert into TBL_Order (ono,state) \n" +
+            "VALUES (SEQ_order.nextval,'준비중')";
 
+    private static final String UPDATE_STATE="update tbl_order set state='준비완료' where ono=?";
 
-<mapper namespace="org.zerock.mapper.BoardMapper">
+    private static final String READ="select * from tbl_order where ono=?";
+//    private static final String LIST = "select *\n" +
+//            "from (select\n" +
+//            "             /*+INDEX_DESC(tbl_order pk_order) */\n" +
+//            "          ROWNUM rn, ono,state, REGDATE \n" +
+//            "      from TBL_order\n" +
+//            "      where ono > 0\n" +
+//            "        AND ROWNUM <= (? * ?))\n" +
+//            "where rn > ( ? -1) * ?";
+    private static final String LIST="select * from tbl_order order by ono";
+    private static final String GET_ONO="select max(ono) max from tbl_order"; -->
 
-<insert id="create" parameterType="BoardVO">
-insert into tbl_board(bno ,title,content,writer)
+<mapper namespace="org.zerock.mapper.OrderMapper">
+
+<insert id="create" parameterType="OrderVO">
+insert into tbl_board(ono ,state)
 values(seq_board.nextval,#{title}, #{content},#{writer})
 
 </insert>

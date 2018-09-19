@@ -6,6 +6,6 @@ import org.zerock.dao.StoreDAO;
 public class CafeTest {
 	@Test
 	public void getStore() {
-		new StoreDAO().getStore(1);
+		System.out.println(new StoreDAO().getStore(1));
 	}
 }

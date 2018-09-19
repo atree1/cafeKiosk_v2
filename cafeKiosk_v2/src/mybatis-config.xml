@@ -23,5 +23,6 @@
     <mappers>
     <mapper resource="org/zerock/mapper/timeMapper.xml"/>
       <mapper resource="org/zerock/mapper/boardMapper.xml"/>
+      <mapper resource="org/zerock/mapper/ownerMapper.xml"/>
   </mappers>
 </configuration>

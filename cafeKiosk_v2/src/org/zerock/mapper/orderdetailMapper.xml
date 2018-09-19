@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.OrderDetailMapper">
+
+<select id="getDetail" resultType="OrderDetailVO">
+<![CDATA[
+select ono ,m.mno,m.menu, m.sno,m.price,qty,regdate 
+from(
+select mno,menu, sno,price
+from tbl_menu
+where sno=1
+)m ,tbl_order_detail od 
+where od.ono=1 and od.mno=m.mno
+]]>
+</select>
+
+
+</mapper>

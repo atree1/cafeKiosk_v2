@@ -36,4 +36,20 @@ public class OrderDAO {
 		}
 		return ono;
 	}
+	public void updateState(int ono) {
+		try(SqlSession session=MyBatisLoader.sqlSessionFactory.openSession(true)){
+			session.update(prefix+".updateState",ono);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public OrderVO getOrder(int ono) {
+	   OrderVO vo= new OrderVO();
+		try(SqlSession session=MyBatisLoader.sqlSessionFactory.openSession(true)){
+			vo=session.selectOne(prefix+".getOrder",ono);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
 }

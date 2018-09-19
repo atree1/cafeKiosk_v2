@@ -24,8 +24,8 @@
     <mapper resource="org/zerock/mapper/orderMapper.xml"/>
       <mapper resource="org/zerock/mapper/storeMapper.xml"/>
       <mapper resource="org/zerock/mapper/ownerMapper.xml"/>
-	    <mapper resource="org/zerock/mapper/storeMapper.xml"/>
 	    <mapper resource="org/zerock/mapper/order_detatilMapper.xml"/>
-	
+	<mapper resource="org/zerock/mapper/menuMapper.xml"/>
+	    
   </mappers>
 </configuration>

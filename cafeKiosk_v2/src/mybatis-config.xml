@@ -21,8 +21,11 @@
   </environments>
   
     <mappers>
-    <mapper resource="org/zerock/mapper/timeMapper.xml"/>
-      <mapper resource="org/zerock/mapper/boardMapper.xml"/>
+    <mapper resource="org/zerock/mapper/orderMapper.xml"/>
+      <mapper resource="org/zerock/mapper/storeMapper.xml"/>
       <mapper resource="org/zerock/mapper/ownerMapper.xml"/>
+	    <mapper resource="org/zerock/mapper/storeMapper.xml"/>
+	    <mapper resource="org/zerock/mapper/order_detatilMapper.xml"/>
+	
   </mappers>
 </configuration>

@@ -31,4 +31,18 @@ public class MenuDAO {
 		
 	}
 }
+	
+	
+	public void deleteMenu(int mno) {
+		
+		try(SqlSession session = MyBatisLoader.sqlSessionFactory.openSession(true)){
+			
+			session.delete(prefix+".deleteMenu", mno);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		
+	}
+		
+	}
 }

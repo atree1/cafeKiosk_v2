@@ -19,4 +19,8 @@ set menu=#{menu},price=#{price},img=#{img}
 where mno = #{mno}
 </update>
 
+<delete id="deleteMenu">
+delete from tbl_menu
+where mno = #{mno} </delete>
+
 </mapper>

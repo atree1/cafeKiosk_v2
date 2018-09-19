@@ -20,4 +20,19 @@ public class OwnerDAO {
 		}
 		return vo;
 	}
+	
+	public OwnerVO getLogin(String owid, String owpw) {
+
+		OwnerVO vo = new OwnerVO();
+		vo.setOwid(owid);
+		vo.setOwpw(owpw);
+		try (SqlSession session = MyBatisLoader.sqlSessionFactory.openSession(true)) {
+
+			vo= session.selectOne(prefix + ".getLogin",vo);
+
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return vo;
+	}
 }

@@ -7,10 +7,10 @@ import org.zerock.domain.StoreVO;
 public class StoreDAO {
 	private String prefix ="org.zerock.mapper.StoreMapper";
 	
-	public void getStore(StoreVO vo) {
+	public void getStore(int sno) {
 		try(SqlSession session = MyBatisLoader.sqlSessionFactory.openSession(true)){
 			
-			session.insert(prefix + ".getStore",vo);
+			session.insert(prefix + ".getStore",sno);
 			
 		}catch(Exception e) {
 			e.printStackTrace();

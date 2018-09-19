@@ -19,4 +19,16 @@ public class MenuDAO {
 		
 		return vo;
 	}
+	
+	public void modifyMenu(MenuVO vo){
+		
+		try(SqlSession session = MyBatisLoader.sqlSessionFactory.openSession(true)){
+			
+			session.update(prefix +".modifyMenu", vo);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		
+	}
+}
 }

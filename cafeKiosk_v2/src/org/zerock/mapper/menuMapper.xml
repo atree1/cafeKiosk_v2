@@ -13,4 +13,10 @@ insert into tbl_menu(mno, sno, menu, price, img)
 values (seq_menu.nextval,#{sno}, #{menu},#{price},#{img})
 </insert>
 
+<update id="modifyMenu" parameterType="MenuVO">
+update tbl_menu
+set menu=#{menu},price=#{price},img=#{img}
+where mno = #{mno}
+</update>
+
 </mapper>

@@ -24,8 +24,8 @@
 <insert id="create" parameterType="OrderVO">
 insert into tbl_board(ono ,state)
 values(seq_board.nextval,#{title}, #{content},#{writer})
-
 </insert>
+
 <delete id="remove">
 delete
 from tbl_board

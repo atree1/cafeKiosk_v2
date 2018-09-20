@@ -9,6 +9,7 @@
 		<td>${menu.menu }</td>
 		<td>${menu.price }</td>
 		<td>${menu.img }</td>
+		<td><img src="http://localhost:8080/getfile?fname=${menu.img}"/></td>
 		<form action="/store/modify">
 			<input type="hidden" name='mno' value=${menu.mno}>
 			<button>수정/삭제</button>

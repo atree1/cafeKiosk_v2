@@ -5,7 +5,7 @@
 
 
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
 
 	<div class="form-group">
 		<label> 메뉴이름</label> <input class="form-control" type="text"
@@ -16,15 +16,13 @@
 		<label>가격</label> <input class="form-control" type="text" name="price">
 	</div>
 	<div class="form-group">
-		<label>카테고리</label> 
-		<select name="category">
-		<option value="음료">음료</option>
-		<option  value="디저트">디저트</option>
+		<label>카테고리</label> <select name="category">
+			<option value="음료">음료</option>
+			<option value="디저트">디저트</option>
 		</select>
-		
+
 	</div>
-<div class="form-group">
-		<!-- <label>이미지</label> <input class="form-control" type="text" name="img"> -->
+	<div class="form-group">
 		<input class="form-control" type='file' name='img' multiple="multiple">
 	</div>
 

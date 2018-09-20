@@ -25,13 +25,13 @@ import org.imgscalr.Scalr;
  */
 @WebServlet("/upload1")
 @MultipartConfig(maxFileSize = 1024 * 1024 * 50, maxRequestSize = 1024 * 1024 * 100)
-public class UploadEx1 extends HttpServlet {
+public class Upload extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public UploadEx1() {
+	public Upload() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -40,7 +40,7 @@ public class UploadEx1 extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void upload(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		Collection<Part> parts = request.getParts();
@@ -50,7 +50,7 @@ public class UploadEx1 extends HttpServlet {
 			System.out.println(part.getSubmittedFileName());
 			System.out.println("---------------------------");
 
-			String uploadName = UUID.randomUUID() + "_" + part.getSubmittedFileName();
+			String uploadName =part.getSubmittedFileName();
 
 			try {
 				InputStream in = part.getInputStream();

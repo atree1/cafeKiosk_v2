@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +17,7 @@ import org.zerock.dao.StoreDAO;
 import org.zerock.domain.MenuVO;
 import org.zerock.domain.OrderDetailVO;
 import org.zerock.util.Converter;
-
+@MultipartConfig(maxFileSize = 1024 * 1024 * 50, maxRequestSize = 1024 * 1024 * 100)
 @WebServlet(urlPatterns = "/store/*")
 public class StoreController extends AbstractController {
    int sno=1;
@@ -38,6 +39,9 @@ public class StoreController extends AbstractController {
         System.out.println("writePOST.......................");
         req.setCharacterEncoding("UTF-8");
 
+
+      
+      
       
       String menu = req.getParameter("menu");
       String priceStr = req.getParameter("price");
@@ -55,6 +59,9 @@ public class StoreController extends AbstractController {
       vo.setCategory(category);
 
       dao.addMenu(vo);
+      
+      Upload up=new Upload();
+      up.upload(req, resp);
       return "redirect:/store/list";
    }
    public String listGET(HttpServletRequest req, HttpServletResponse resp) throws Exception {

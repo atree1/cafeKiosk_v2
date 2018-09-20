@@ -38,16 +38,12 @@ public class StoreController extends AbstractController {
     public String writePOST(HttpServletRequest req, HttpServletResponse resp)throws Exception{
         System.out.println("writePOST.......................");
         req.setCharacterEncoding("UTF-8");
-
-
-      
-      
-      
+ 
       String menu = req.getParameter("menu");
       String priceStr = req.getParameter("price");
       String img = req.getParameter("img");
       String category = req.getParameter("category");
-      System.out.println("~~~~~~~~~~~~~~~~"+category);
+     
       int price = Converter.getInt(priceStr, -1);
 
       MenuVO vo = new MenuVO();
@@ -60,8 +56,6 @@ public class StoreController extends AbstractController {
 
       dao.addMenu(vo);
       
-      Upload up=new Upload();
-      up.upload(req, resp);
       return "redirect:/store/list";
    }
    public String listGET(HttpServletRequest req, HttpServletResponse resp) throws Exception {

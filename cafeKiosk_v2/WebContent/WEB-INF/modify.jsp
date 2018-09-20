@@ -32,7 +32,7 @@
 		<label>이미지</label> <input class="form-control" type="text" name="img"
 			value="${menu.img}">
 	</div>
-
+</form>
 	<button class="btn btn-primary">수정</button>
 
 </form>

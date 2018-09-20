@@ -58,6 +58,32 @@ public class MenuDAO {
 		
 		return list;
 	} 
+public List<MenuVO> getDrinkList(int sno){ 
+		
+		List<MenuVO> list = new ArrayList<>();
+		try(SqlSession session = MyBatisLoader.sqlSessionFactory.openSession(true)){
+			
+		list = session.selectList(prefix+".getDrinkList",sno);
+			
+		}catch(Exception e) {e.printStackTrace();}
+		
+		return list;
+	} 
+	
+public List<MenuVO> getDessertList(int sno){ 
+	
+	List<MenuVO> list = new ArrayList<>();
+	try(SqlSession session = MyBatisLoader.sqlSessionFactory.openSession(true)){
+		
+	list = session.selectList(prefix+".getDessertList",sno);
+		
+	}catch(Exception e) {e.printStackTrace();}
+	
+	return list;
+} 
+
+
+	
 public List<MenuVO> getPageList(PageDTO pageDTO){ 
 		
 		List<MenuVO> list = new ArrayList<>();

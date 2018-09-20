@@ -70,7 +70,9 @@ public class StoreController extends AbstractController {
 //           req.setAttribute("pageMaker",pageMaker);
 //           req.setAttribute("list", dao.getPageList(dto));
 
-      req.setAttribute("list", dao.getList(sno));
+//      req.setAttribute("list", dao.getList(sno));
+      req.setAttribute("drinkList", dao.getDrinkList(sno));
+      req.setAttribute("dessertList", dao.getDessertList(sno));
       return "list";
    }
 

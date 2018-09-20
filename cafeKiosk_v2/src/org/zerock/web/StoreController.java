@@ -114,7 +114,6 @@ public class StoreController extends AbstractController {
 			req.setAttribute("slist", sdao.getStore(1));
 			return "slist";
 		}
-	 
 
 		public String storeModifyGET(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 			System.out.println("modifyGET.......................");
@@ -134,14 +133,13 @@ public class StoreController extends AbstractController {
 			int mno =Converter.getInt(mnoStr,-1);
 			int price = Converter.getInt(priceStr,-1);
 
-			MenuVO vo = new MenuVO();
-			vo.setMno(mno);
-			vo.setSno(sno);
-			vo.setMenu(menu);
-			vo.setImg(img);
-			vo.setPrice(price);
-
-			dao.modifyMenu(vo);
+//			vo.setMno(mno);
+//			vo.setSno(sno);
+//			vo.setMenu(menu);
+//			vo.setImg(img);
+//			vo.setPrice(price);
+//
+//			dao.modifyMenu(vo);
 
 			// resp.sendRedirect("/board/list?page="+pageStr);
 			return "redirect:/store/list";

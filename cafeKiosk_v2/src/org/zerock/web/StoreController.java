@@ -123,7 +123,7 @@ public class StoreController extends AbstractController {
            return  "redirect:/store/list";
        }
     
-    public String storeListGET(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+    public String manageGET(HttpServletRequest req, HttpServletResponse resp) throws Exception {
     	 Map<Integer, Integer> map = new HashMap<>();
 		 Set<Integer> set = new HashSet<Integer>();
 			List<OrderDetailVO> list = ddao.getAllDetail(1);

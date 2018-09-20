@@ -5,9 +5,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <select id="getDetail" resultType="OrderDetailVO">
 <![CDATA[
-select ono ,m.mno,m.menu, m.sno,m.price,qty,regdate 
+select ono ,m.sno,m.mno,m.menu, m.price,qty,regdate 
 from(
-select mno,menu, sno,price
+select mno, sno, menu, price
 from tbl_menu
 where sno=1
 )m ,tbl_order_detail od 
@@ -15,5 +15,28 @@ where od.ono=1 and od.mno=m.mno
 ]]>
 </select>
 
+<select id="getAllDetail" resultType="OrderDetailVO">
+<![CDATA[
+select ono ,m.sno,m.mno,m.menu, m.price,qty,regdate 
+from(
+select sno,mno,menu,price
+from tbl_menu
+where sno=#{sno}
+)m ,tbl_order_detail od
+where od.mno=m.mno
+]]>
+</select>
+
+<select id="getCount" resultType="int">
+<![CDATA[
+select count (*) from (select ono ,m.sno,m.mno,m.menu, m.price,qty,regdate 
+from(
+select sno,mno,menu,price
+from tbl_menu
+where sno=#{sno}
+)m ,tbl_order_detail od
+where od.mno=m.mno)
+]]>
+</select>
 
 </mapper>

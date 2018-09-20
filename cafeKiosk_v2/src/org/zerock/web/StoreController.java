@@ -1,12 +1,16 @@
 package org.zerock.web;
 
+import java.util.List;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.zerock.dao.MenuDAO;
+import org.zerock.dao.OrderDetailDAO;
 import org.zerock.dao.StoreDAO;
 import org.zerock.domain.MenuVO;
+import org.zerock.domain.OrderDetailVO;
 import org.zerock.util.Converter;
 
 @WebServlet(urlPatterns = "/store/*")
@@ -14,6 +18,7 @@ public class StoreController extends AbstractController {
 	int sno=1;
 	MenuDAO dao = new MenuDAO();
 	StoreDAO sdao = new StoreDAO();
+	OrderDetailDAO ddao= new OrderDetailDAO();
 	
 	public String mainGET(HttpServletRequest req, HttpServletResponse resp)throws Exception{
 	        System.out.println("mainGET.......................");
@@ -115,10 +120,20 @@ public class StoreController extends AbstractController {
 	    }
 	 
 	 public String storeListGET(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-
+		 	
+			List<OrderDetailVO> list = ddao.getAllDetail(1);
+			System.out.println(list);
+			int sum = 0;
+			for(OrderDetailVO vo : list) {
+				sum += vo.getPrice() * vo.getQty();
+			}
+			req.setAttribute("count", ddao.countMenu(1));
+			req.setAttribute("getTotal", sum);
+		 	req.setAttribute("detail", ddao.getAllDetail(1));
+		 	System.out.println(ddao.getAllDetail(1));
 			System.out.println("listGET.......................");
-			req.setAttribute("slist", sdao.getStore(1));
-			return "slist"; 
+			req.setAttribute("store", sdao.getStore(1)); 
+			return "store"; 
 		}
 
 //		public String storeModifyGET(HttpServletRequest req, HttpServletResponse resp) throws Exception {

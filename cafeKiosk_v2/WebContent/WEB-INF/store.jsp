@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,16 +11,33 @@
 </head>
 <body>
 	<div>
-	<span>${store.sno}</span>
+		<span>${store.sno}</span>
 	</div>
 	<div>
-	<span>${store.sname}</span>
+		<span>${store.sname}</span>
 	</div>
 	<div>
-	<span>위도: ${store.lng}, 경도: ${store.lng}</span>
+		<span>위도: ${store.lng}, 경도: ${store.lng}</span>
 	</div>
 	<div>
-	<span>${store.addr}</span>
+		<span>${store.addr}</span>
 	</div>
+<%-- <c:forEach var="orderdetail" items="${detail}"> 
+	<div>
+		<span>주문번호: ${orderdetail.ono}</span>
+	</div>
+	<div>
+		<span>가격: ${orderdetail.price}</span>
+	</div>
+	<div>
+		<span>수량: ${orderdetail.qty}</span>
+	</div>
+</c:forEach> --%>
+
+총 판매량: ${count}
+총 매출: ${getTotal}
+
+
+
 </body>
 </html>

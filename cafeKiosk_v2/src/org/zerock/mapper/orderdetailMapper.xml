@@ -24,6 +24,7 @@ from tbl_menu
 where sno=#{sno}
 )m ,tbl_order_detail od
 where od.mno=m.mno
+order by ono
 ]]>
 </select>
 
@@ -38,5 +39,18 @@ where sno=#{sno}
 where od.mno=m.mno)
 ]]>
 </select>
+
+<select id="printOrder" parameterType="map" resultType="OrderDetailVO">
+<![CDATA[
+select ono ,m.sno, m.price,qty
+from(
+select sno,mno,menu,price
+from tbl_menu
+where sno=#{sno}
+)m ,tbl_order_detail od
+where ono=#{ono} and od.mno=m.mno
+]]>
+</select>
+
 
 </mapper>

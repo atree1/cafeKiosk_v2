@@ -1,10 +1,13 @@
 package org.zerock.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.zerock.domain.OrderDetailVO;
+import org.zerock.domain.OwnerVO;
 
 public class OrderDetailDAO {
 
@@ -44,5 +47,22 @@ public class OrderDetailDAO {
 			e.printStackTrace();
 		}
 		return count;
+	}
+	
+	public List<OrderDetailVO> printOrder(int ono, int sno){
+		List<OrderDetailVO> List = new ArrayList<>();
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("ono", ono);
+		paramMap.put("sno", sno);
+
+		OrderDetailVO vo = new OrderDetailVO();
+		try (SqlSession session = MyBatisLoader.sqlSessionFactory.openSession(true)) {
+
+			 List = session.selectList(prefix + ".printOrder", paramMap);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return List;
 	}
 }

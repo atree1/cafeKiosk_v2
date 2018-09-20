@@ -22,7 +22,7 @@
 	<div>
 		<span>${store.addr}</span>
 	</div>
-<%-- <c:forEach var="orderdetail" items="${detail}"> 
+<c:forEach var="orderdetail" items="${detail}"> 
 	<div>
 		<span>주문번호: ${orderdetail.ono}</span>
 	</div>
@@ -32,7 +32,7 @@
 	<div>
 		<span>수량: ${orderdetail.qty}</span>
 	</div>
-</c:forEach> --%>
+</c:forEach> 
 
 총 판매량: ${count}
 총 매출: ${getTotal}

@@ -124,75 +124,40 @@ public class StoreController extends AbstractController {
        }
     
     public String storeListGET(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-          Map<Integer, Integer> map = new HashMap<>();
-         List<OrderDetailVO> list = ddao.getAllDetail(1);
-         Set<Integer> set = new HashSet<Integer>();
-         
-         System.out.println(list);
-         int sum = 0;
-         int partsum = 0;
-         for(OrderDetailVO vo : list) {
-            sum += vo.getPrice() * vo.getQty();
-         }
-         
-         for(OrderDetailVO vo : list) {
-            set.add(vo.getOno());
-         }
-         
-         
-         for(int ono : set) {
-            System.out.println(ono);
-            String temp = "sum" + ono;
-            for(OrderDetailVO vo : list) {
-               
-               if(ono == vo.getOno()){
-                  partsum += vo.getPrice();
+    	 Map<Integer, Integer> map = new HashMap<>();
+		 Set<Integer> set = new HashSet<Integer>();
+			List<OrderDetailVO> list = ddao.getAllDetail(1);
+			
+			int sum = 0;
+			int partsum = 0;
 
-               }else {
-                  map.put(ono,partsum);
-                  partsum=0;
-                  break;
-               }
-            }
-            
-         }
-         System.out.println("~~~"+map);
-         
-         req.setAttribute("count", ddao.countMenu(1));
-         req.setAttribute("getTotal", sum);
-          req.setAttribute("detail", ddao.getAllDetail(1));
-         req.setAttribute("store", sdao.getStore(1)); 
-         return "store"; 
+			for(OrderDetailVO vo : list) {
+				sum += vo.getPrice() * vo.getQty();
+			}
+			
+			for(OrderDetailVO vo : list) {
+				set.add(vo.getOno());
+			}
+
+			for(int ono : set) {
+				
+				for(OrderDetailVO vo : list) {
+					if(ono == vo.getOno()){
+						partsum += vo.getPrice();
+					}
+					
+				}
+				map.put(ono,partsum);
+				partsum = 0;
+			}
+			
+			req.setAttribute("set", set);
+			req.setAttribute("map", map);
+			req.setAttribute("count", ddao.countMenu(1));
+			req.setAttribute("getTotal", sum);
+		 	req.setAttribute("detail", ddao.getAllDetail(1));
+			req.setAttribute("store", sdao.getStore(1)); 
+			return "store"; 
       }
 
-//      public String storeModifyGET(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-//         System.out.println("modifyGET.......................");
-//         String mnoStr = req.getParameter("mno");
-//         int mno = Converter.getInt(mnoStr,-1);
-//         req.setAttribute("menu", dao.getMenu(mno));
-//         return "modify"; 
-//         
-//      }
-
-//      public String storeModifyPOST(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-//         req.setCharacterEncoding("UTF-8");
-//
-//         String mnoStr = req.getParameter("mno");
-//         String menu = req.getParameter("menu");
-//         String img = req.getParameter("img");
-//         String priceStr = req.getParameter("price");
-//         int mno =Converter.getInt(mnoStr,-1);
-//         int price = Converter.getInt(priceStr,-1);
-//
-////         vo.setMno(mno);
-////         vo.setSno(sno);
-////         vo.setMenu(menu);
-////         vo.setImg(img);
-////         vo.setPrice(price);
-////
-////         dao.modifyMenu(vo);
-//
-//         // resp.sendRedirect("/board/list?page="+pageStr);
-//         return "redirect:/store/list";
-//      }
 }

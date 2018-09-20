@@ -36,6 +36,12 @@
 
 총 판매량: ${count}
 총 매출: ${getTotal}
+<br/>
+<c:forEach var="map" items="${map}">
+<c:set var="key" value="${map.key}" />
+<c:set var="value" value="${map.value}" />
+${key}/ ${value}
+</c:forEach>
 
 
 

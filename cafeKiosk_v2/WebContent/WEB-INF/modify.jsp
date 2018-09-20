@@ -19,10 +19,10 @@
 	</div>
 	
 	<div class="form-group">
-		<label>가격</label> 
+		<label>카테고리</label> 
 		<select name="category">
-		<option value="drink">음료</option>
-		<option  value="desert">디저트</option>
+		<option value="음료">음료</option>
+		<option  value="디저트">디저트</option>
 		</select>
 		
 	</div>

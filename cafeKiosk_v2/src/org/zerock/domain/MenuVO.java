@@ -6,6 +6,6 @@ import lombok.Data;
 public class MenuVO {
 	
 	private int mno, sno, price;
-	private String menu, img;
+	private String menu, img, category;
 
 }

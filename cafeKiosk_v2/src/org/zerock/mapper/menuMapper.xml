@@ -9,13 +9,13 @@ where mno=#{mno}
 </select>
 
 <insert id="addMenu" parameterType="MenuVO">
-insert into tbl_menu(mno, sno, menu, price, img)
-values (seq_menu.nextval,#{sno}, #{menu},#{price},#{img})
+insert into tbl_menu(mno, sno, menu, price, img, category)
+values (seq_menu.nextval,#{sno}, #{menu},#{price},#{img}, #{category})
 </insert>
 
 <update id="modifyMenu" parameterType="MenuVO">
 update tbl_menu
-set menu=#{menu},price=#{price},img=#{img}
+set menu=#{menu},price=#{price},img=#{img}, category=#{category}
 where mno = #{mno}
 </update>
 
@@ -35,7 +35,7 @@ select *
 from
     (select
     /*+INDEX_DESC(tbl_menu pk_menu) */
-    ROWNUM rn ,mno,sno,price,menu,img
+    ROWNUM rn ,mno,sno,price,menu,img,category
     from tbl_menu
     where mno>0 
     and rownum <=(#{page}*#{size})

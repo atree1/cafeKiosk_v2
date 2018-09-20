@@ -33,6 +33,7 @@ public class StoreController extends AbstractController {
 		String menu = req.getParameter("menu");
 		String priceStr = req.getParameter("price");
 		String category = req.getParameter("category");
+		System.out.println("~~~~~~~~~~~~~~~~"+category);
 		int price = Converter.getInt(priceStr, -1);
 
 		MenuVO vo = new MenuVO();
@@ -83,6 +84,8 @@ public class StoreController extends AbstractController {
 		String menu = req.getParameter("menu");
 		String img = req.getParameter("img");
 		String priceStr = req.getParameter("price");
+		String category = req.getParameter("category");
+		
 		int mno =Converter.getInt(mnoStr,-1);
 		int price = Converter.getInt(priceStr,-1);
 
@@ -92,6 +95,7 @@ public class StoreController extends AbstractController {
 		vo.setMenu(menu);
 		vo.setImg(img);
 		vo.setPrice(price);
+		vo.setCategory(category);
 
 		dao.modifyMenu(vo);
 

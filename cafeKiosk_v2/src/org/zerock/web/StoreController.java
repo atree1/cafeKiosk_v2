@@ -120,7 +120,8 @@ public class StoreController extends AbstractController {
 			String mnoStr = req.getParameter("mno");
 			int mno = Converter.getInt(mnoStr,-1);
 			req.setAttribute("menu", dao.getMenu(mno));
-			return "modify";
+			return "modify"; 
+			
 		}
 
 		public String storeModifyPOST(HttpServletRequest req, HttpServletResponse resp) throws Exception {

@@ -34,4 +34,4 @@
 </div>
 
 <a href="/store/write"><button>메뉴 추가</button></a>
-<a href="/main.jsp"><button>메인</button></a>
+<a href="/store/main"><button>메인</button></a>

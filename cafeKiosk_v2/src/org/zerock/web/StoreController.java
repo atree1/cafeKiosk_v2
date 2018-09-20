@@ -110,39 +110,39 @@ public class StoreController extends AbstractController {
 	 
 	 public String storeListGET(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
-			System.out.println("listGET......................."); 
+			System.out.println("listGET.......................");
 			req.setAttribute("slist", sdao.getStore(1));
-			return "slist";
+			return "slist"; 
 		}
 
-		public String storeModifyGET(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-			System.out.println("modifyGET.......................");
-			String mnoStr = req.getParameter("mno");
-			int mno = Converter.getInt(mnoStr,-1);
-			req.setAttribute("menu", dao.getMenu(mno));
-			return "modify"; 
-			
-		}
+//		public String storeModifyGET(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+//			System.out.println("modifyGET.......................");
+//			String mnoStr = req.getParameter("mno");
+//			int mno = Converter.getInt(mnoStr,-1);
+//			req.setAttribute("menu", dao.getMenu(mno));
+//			return "modify"; 
+//			
+//		}
 
-		public String storeModifyPOST(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-			req.setCharacterEncoding("UTF-8");
-
-			String mnoStr = req.getParameter("mno");
-			String menu = req.getParameter("menu");
-			String img = req.getParameter("img");
-			String priceStr = req.getParameter("price");
-			int mno =Converter.getInt(mnoStr,-1);
-			int price = Converter.getInt(priceStr,-1);
-
-//			vo.setMno(mno);
-//			vo.setSno(sno);
-//			vo.setMenu(menu);
-//			vo.setImg(img);
-//			vo.setPrice(price);
+//		public String storeModifyPOST(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+//			req.setCharacterEncoding("UTF-8");
 //
-//			dao.modifyMenu(vo);
-
-			// resp.sendRedirect("/board/list?page="+pageStr);
-			return "redirect:/store/list";
-		}
+//			String mnoStr = req.getParameter("mno");
+//			String menu = req.getParameter("menu");
+//			String img = req.getParameter("img");
+//			String priceStr = req.getParameter("price");
+//			int mno =Converter.getInt(mnoStr,-1);
+//			int price = Converter.getInt(priceStr,-1);
+//
+////			vo.setMno(mno);
+////			vo.setSno(sno);
+////			vo.setMenu(menu);
+////			vo.setImg(img);
+////			vo.setPrice(price);
+////
+////			dao.modifyMenu(vo);
+//
+//			// resp.sendRedirect("/board/list?page="+pageStr);
+//			return "redirect:/store/list";
+//		}
 }

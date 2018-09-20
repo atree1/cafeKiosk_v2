@@ -120,7 +120,7 @@ public class StoreController extends AbstractController {
 
 		 	req.setAttribute("detail", ddao.getAllDetail(1));
 			System.out.println("listGET.......................");
-			req.setAttribute("slist", sdao.getStore(1));
+			req.setAttribute("slist", sdao.getStore(1)); 
 			return "slist"; 
 		}
 

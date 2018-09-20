@@ -21,7 +21,7 @@
 	<div>
 		<span>${store.addr}</span>
 	</div>
-<c:forEach var="orderdetail" items="${detail}">
+<c:forEach var="orderdetail" items="${detail}"> 
 	<div>
 		<span>주문번호: ${orderdetail.ono}</span>
 	</div>

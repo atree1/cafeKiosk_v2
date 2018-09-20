@@ -22,7 +22,7 @@ from(
 select mno,menu, sno,price
 from tbl_menu
 where sno=#{sno}
-)m ,tbl_order_detail od 
+)m ,tbl_order_detail od
 where od.mno=m.mno
 ]]>
 </select>

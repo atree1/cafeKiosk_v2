@@ -30,7 +30,7 @@ public class OrderDetailDAO {
 			List<OrderDetailVO> allList = session.selectList(prefix + ".getAllDetail",sno);
 			return allList;
 		} catch (Exception e) {
-			e.getMessage();
+			e.getMessage(); 
 		}
 		return null;
 	}

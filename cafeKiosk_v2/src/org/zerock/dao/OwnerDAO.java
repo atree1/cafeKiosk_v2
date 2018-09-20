@@ -16,7 +16,7 @@ public class OwnerDAO {
 			vo= session.selectOne(prefix + ".getOwner", owid);
 
 		} catch (Exception e) {
-			e.getMessage();
+			e.printStackTrace();
 		}
 		return vo;
 	}
@@ -31,7 +31,7 @@ public class OwnerDAO {
 			vo= session.selectOne(prefix + ".getLogin",vo);
 
 		} catch (Exception e) {
-			e.getMessage();
+			e.printStackTrace();
 		}
 		return vo;
 	}

@@ -16,7 +16,7 @@
 
 	</tr>
 </c:forEach>
-<div class="well">
+<%-- <div class="well">
 	<ul class="pagination">
 		<c:if test="${pageMaker.prev}">
 			<li><a
@@ -26,12 +26,12 @@
 			<li ${pageMaker.pageDTO.page==num?"class='active'":""}><a
 				href="list?page=${num}&size=${pageMaker.pageDTO.size}">${num}</a></li>
 		</c:forEach>
-	<%-- 	<c:if test="${pageMaker.next}">
+	 	<c:if test="${pageMaker.next}">
 			<li><a
 				href="list?page=${pageMaker.end+1}&size=${pageMaker.pageDTO.size}">Next</a></li>
-		</c:if> --%>
+		</c:if> 
 	</ul>
 </div>
-
+ --%>
 <a href="/store/write"><button>메뉴 추가</button></a>
 <a href="/store/main"><button>메인</button></a>

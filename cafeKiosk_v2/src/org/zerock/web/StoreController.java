@@ -32,7 +32,7 @@ public class StoreController extends AbstractController {
 		
 		String menu = req.getParameter("menu");
 		String priceStr = req.getParameter("price");
-	
+		
 		int price = Converter.getInt(priceStr, -1);
 
 		MenuVO vo = new MenuVO();

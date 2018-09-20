@@ -26,10 +26,10 @@
 			<li ${pageMaker.pageDTO.page==num?"class='active'":""}><a
 				href="list?page=${num}&size=${pageMaker.pageDTO.size}">${num}</a></li>
 		</c:forEach>
-		<c:if test="${pageMaker.next}">
+	<%-- 	<c:if test="${pageMaker.next}">
 			<li><a
 				href="list?page=${pageMaker.end+1}&size=${pageMaker.pageDTO.size}">Next</a></li>
-		</c:if>
+		</c:if> --%>
 	</ul>
 </div>
 

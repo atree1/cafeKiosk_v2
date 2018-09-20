@@ -27,4 +27,16 @@ where od.mno=m.mno
 ]]>
 </select>
 
+<select id="getCount" resultType="int">
+<![CDATA[
+select count (*) from (select ono ,m.sno,m.mno,m.menu, m.price,qty,regdate 
+from(
+select sno,mno,menu,price
+from tbl_menu
+where sno=#{sno}
+)m ,tbl_order_detail od
+where od.mno=m.mno)
+]]>
+</select>
+
 </mapper>

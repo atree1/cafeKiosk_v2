@@ -28,10 +28,21 @@ public class OrderDetailDAO {
 		try (SqlSession session = MyBatisLoader.sqlSessionFactory.openSession(true)) {
 			
 			allList = session.selectList(prefix + ".getAllDetail",sno);
-			System.out.println("+++++++++++++++++++++++"+allList);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return allList;
+	}
+	
+	public int countMenu(int sno){
+		int count = 0;
+		try (SqlSession session = MyBatisLoader.sqlSessionFactory.openSession(true)) {
+			
+			count = session.selectOne(prefix + ".getCount",sno);
+			System.out.println("++++++++++++"+count);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return count;
 	}
 }

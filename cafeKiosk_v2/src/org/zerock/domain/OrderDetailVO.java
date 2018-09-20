@@ -11,4 +11,5 @@ public class OrderDetailVO {
 	private String state;
 	private Date regdate;
 
+
 }

@@ -8,13 +8,17 @@ import org.zerock.dao.MenuDAO;
 import org.zerock.domain.MenuVO;
 import org.zerock.domain.PageDTO;
 import org.zerock.domain.PageMaker;
-
-import util.Converter;
+import org.zerock.util.Converter;
 
 @WebServlet(urlPatterns = "/store/*")
 public class StoreController extends AbstractController {
 	int sno=1;
 	MenuDAO dao = new MenuDAO();
+	  public String mainGET(HttpServletRequest req, HttpServletResponse resp)throws Exception{
+	        System.out.println("mainGET.......................");
+
+	        return "main";
+	    }
     public String writeGET(HttpServletRequest req, HttpServletResponse resp)throws Exception{
         System.out.println("writeGET.......................");
 

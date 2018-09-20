@@ -17,6 +17,16 @@
 		<label>가격</label> <input class="form-control" type="text" name="price"
 			value="${menu.price}">
 	</div>
+	
+	<div class="form-group">
+		<label>가격</label> 
+		<select name="category">
+		<option value="drink">음료</option>
+		<option  value="desert">디저트</option>
+		</select>
+		
+	</div>
+	
 
 	<div class="form-group">
 		<label>이미지</label> <input class="form-control" type="text" name="img"

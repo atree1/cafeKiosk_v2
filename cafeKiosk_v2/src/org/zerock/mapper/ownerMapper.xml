@@ -9,8 +9,10 @@
 select*from tbl_owner where owid= #{owid}
 </select>
 
-<select id="getLogin" parameterType="OwnerVO" resultType="OwnerVO">
-select * from tbl_owner where owid =#{owid} and owid=#{owpw}
+<select id="getLogin" parameterType="map" resultType="OwnerVO">
+
+select * from tbl_owner where owid =#{owid} and owpw=#{owpw}
+
 </select>
 
 </mapper>  

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Log4j
-@WebFilter(urlPatterns = {"/board/list"})
+@WebFilter(urlPatterns = {"/store/*"})
 public class LoginCheckFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -24,7 +24,7 @@ public class LoginCheckFilter implements Filter {
         log.info(cks);
 
         if(cks==null ||cks.length==0){
-            resp.sendRedirect("/main");
+            resp.sendRedirect("/owner/login");
         }
         boolean check=false;
         for (Cookie ck:cks) {
@@ -36,7 +36,7 @@ public class LoginCheckFilter implements Filter {
         }//end for
         log.info(check);
         if(!check){
-            resp.sendRedirect("/main");
+            resp.sendRedirect("/owner/login");
             return;
         }
         filterChain.doFilter(servletRequest,servletResponse);

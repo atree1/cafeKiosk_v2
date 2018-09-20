@@ -8,9 +8,9 @@
 </head>
 <body>
 
-<form method="post" action="/store/main">
-    <input type="text" name="id"></br>
-    <input type="text" name="pw"></br>
+<form method="post">
+    <input type="text" name="owid"></br>
+    <input type="text" name="owpw"></br>
     <button>login</button>
 </form>
 

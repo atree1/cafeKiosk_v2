@@ -3,20 +3,19 @@ package org.zerock.test;
 import org.junit.Test;
 import org.zerock.dao.MenuDAO;
 import org.zerock.dao.OrderDAO;
+import org.zerock.dao.OwnerDAO;
 import org.zerock.dao.StoreDAO;
-import org.zerock.domain.PageDTO;
 
 public class CafeTest {
 	OrderDAO dao=new OrderDAO();
 	StoreDAO sdao=new StoreDAO();
 	MenuDAO mdao=new MenuDAO();
+	OwnerDAO odao=new OwnerDAO();
 	@Test
 	public void getOrder() {
-		PageDTO pageDTO=new PageDTO();
-		System.out.println(mdao.getPageList(pageDTO));
+		System.out.println(odao.getLogin("atree","12345678"));
+	//	System.out.println(odao.getOwner("atree"));
 	}
 	
-	public void getStore() {
-		System.out.println(sdao.getStore(1));
-	}
+
 }

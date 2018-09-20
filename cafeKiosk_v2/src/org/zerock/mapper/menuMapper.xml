@@ -38,8 +38,8 @@ from
     ROWNUM rn ,mno,sno,price,menu,img
     from tbl_menu
     where mno>0 
-    and rownum <=(#{page}*#{size}))
-where rn>(#{page}-1)*#{size});
+    and rownum <=(#{page}*#{size})
+where rn>(#{page}-1)*#{size})
 ]]>
 </select>
 

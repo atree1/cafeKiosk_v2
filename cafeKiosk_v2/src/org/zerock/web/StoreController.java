@@ -47,16 +47,16 @@ public class StoreController extends AbstractController {
 	public String listGET(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
 		System.out.println("listGET.......................");
-		  PageDTO dto = PageDTO.of()
-	                .setPage(Converter.getInt(req.getParameter("page"),1))
-	                .setSize(Converter.getInt(req.getParameter("size"),10));
-	        int total=320;
-	        PageMaker pageMaker=new PageMaker(total,dto);
+//		  PageDTO dto = PageDTO.of()
+//	                .setPage(Converter.getInt(req.getParameter("page"),1))
+//	                .setSize(Converter.getInt(req.getParameter("size"),10));
+//	        int total=320;
+//	        PageMaker pageMaker=new PageMaker(total,dto);
+//
+//	        req.setAttribute("pageMaker",pageMaker);
+//	        req.setAttribute("list", dao.getPageList(dto));
 
-	        req.setAttribute("pageMaker",pageMaker);
-	        req.setAttribute("list", dao.getPageList(dto));
-
-	      
+		req.setAttribute("list", dao.getList(sno));
 		return "list";
 	}
 

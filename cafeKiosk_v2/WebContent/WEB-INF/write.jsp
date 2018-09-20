@@ -24,7 +24,8 @@
 		
 	</div>
 <div class="form-group">
-		<label>이미지</label> <input class="form-control" type="text" name="img">
+		<!-- <label>이미지</label> <input class="form-control" type="text" name="img"> -->
+		<input class="form-control" type='file' name='img' multiple="multiple">
 	</div>
 
 	<button class="btn btn-primary">등록</button>

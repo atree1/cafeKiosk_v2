@@ -34,6 +34,7 @@ public class StoreController extends AbstractController {
 		
 		String menu = req.getParameter("menu");
 		String priceStr = req.getParameter("price");
+		String img = req.getParameter("img");
 		String category = req.getParameter("category");
 		System.out.println("~~~~~~~~~~~~~~~~"+category);
 		int price = Converter.getInt(priceStr, -1);
@@ -42,7 +43,7 @@ public class StoreController extends AbstractController {
 		
 		vo.setSno(sno);
 		vo.setMenu(menu);
-		vo.setImg("m1.jpg");
+		vo.setImg(img);
 		vo.setPrice(price);
 		vo.setCategory(category);
 

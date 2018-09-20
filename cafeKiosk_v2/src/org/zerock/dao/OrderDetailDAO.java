@@ -22,4 +22,16 @@ public class OrderDetailDAO {
 		}
 		return null;
 	}
+	
+	public List<OrderDetailVO> getAllDetail(int sno){
+		
+		try (SqlSession session = MyBatisLoader.sqlSessionFactory.openSession(true)) {
+			
+			List<OrderDetailVO> allList = session.selectList(prefix + ".getAllDetail",sno);
+			return allList;
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
+	}
 }

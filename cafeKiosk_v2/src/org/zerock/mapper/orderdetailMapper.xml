@@ -15,5 +15,16 @@ where od.ono=1 and od.mno=m.mno
 ]]>
 </select>
 
+<select id="getAllDetail" resultType="OrderDetailVO">
+<![CDATA[
+select ono ,m.mno,m.menu, m.sno,m.price,qty,regdate 
+from(
+select mno,menu, sno,price
+from tbl_menu
+where sno=#{sno}
+)m ,tbl_order_detail od 
+where od.mno=m.mno
+]]>
+</select>
 
 </mapper>

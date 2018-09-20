@@ -110,7 +110,7 @@ public class StoreController extends AbstractController {
 	 
 	 public String storeListGET(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
-			System.out.println("listGET.......................");
+			System.out.println("listGET......................."); 
 			req.setAttribute("slist", sdao.getStore(1));
 			return "slist";
 		}

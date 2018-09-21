@@ -22,6 +22,7 @@ public class UserController extends AbstractController{
 	      return "list";
 	   }
 	
+	
 	@Override
 	public String getBasic() {
 		return "/user/";

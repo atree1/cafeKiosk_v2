@@ -28,9 +28,9 @@
 	</div>
 	
 
-	
+	<img src="http://localhost:8080/getFile?fname=s_${menu.img}"/>
 	<div class="form-group">
-		<input class="form-control" type='file' name='img' value="${menu.img}" multiple="multiple">
+		<input class="form-control" type='file' name='img'  multiple="multiple">
 	</div>
 	
 	<button class="btn btn-primary">수정</button>

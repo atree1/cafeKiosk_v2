@@ -21,7 +21,7 @@
   </environments>
   
     <mappers>
-    <mapper resource="org/zerock/mapper/orderMapper.xml"/>
+    <mapper resource="org/zerock/mapper/orderMapper.xml"/> 
 
   </mappers>
 </configuration>

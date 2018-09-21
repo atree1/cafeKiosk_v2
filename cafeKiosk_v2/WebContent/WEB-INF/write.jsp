@@ -22,13 +22,14 @@
 		</select>
 
 	</div>
+
 	<div class="form-group">
 		<input class="form-control" type='file' name='img' multiple="multiple">
 	</div>
 
 	<button class="btn btn-primary">등록</button>
 
-</form>
+
 <form action="/store/list">
 	<button class="btn btn-danger">취소</button>
 </form>

@@ -13,7 +13,7 @@
 	<input type="number" name="price"><br><br>
 	<img src='http://localhost:8080/getFile?fname=가    나.jpg'>
 	<a href='http://localhost:8080/getFile?fname=가    나.jpg'><h1>베놈</h1></a>	
-	<input type='file' name='files' multiple="multiple">
+	<input type='file' name='files'  multiple="multiple">
 
 	<button>Save</button>
 	

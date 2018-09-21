@@ -27,6 +27,18 @@ where mno = #{mno} </delete>
 <select id="getList" resultType="MenuVO">
 select * from tbl_menu
 where sno = #{sno}
+order by mno
+</select> 
+<select id="getDrinkList" resultType="MenuVO">
+select * from tbl_menu
+where sno = #{sno} and category='음료'
+order by mno
+</select> 
+
+<select id="getDessertList" resultType="MenuVO">
+select * from tbl_menu
+where sno = #{sno} and category='디저트'
+order by mno
 </select> 
 
 <select id="getListPage" parameterType="PageDTO" resultType="MenuVO">

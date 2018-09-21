@@ -93,7 +93,7 @@
 											</tr>
 											<td><form action="/store/modify">
 													<input type="hidden" name='mno' value=${menu1.mno}>
-													<button class="btn btn-primary">수정/삭제</button>
+													<button class="btn btn-outline btn-primary">수정/삭제</button>
 												</form></td>
 
 											</tr>
@@ -129,7 +129,7 @@
 											</tr>
 											<td><form action="/store/modify">
 													<input type="hidden" name='mno' value=${menu2.mno}>
-													<button class="btn btn-primary">수정/삭제</button>
+													<button class="btn btn-outline btn-primary">수정/삭제</button>
 												</form></td>
 
 											</tr>
@@ -137,8 +137,12 @@
 									</c:forEach>
 								</div>
 
-								<a href="/store/write"><button class="btn btn-primary">메뉴 추가</button></a>
-<a href="/store/main"><button class="btn btn-primary">메인</button></a>
+								<a href="/store/write">
+								<button class="btn btn-success">메뉴 추가</button>
+								</a>
+								<a href="/store/main">
+								<button class="btn btn-warning">메인</button>
+								</a>
 
 							</div>
 							<!-- /.panel-body -->

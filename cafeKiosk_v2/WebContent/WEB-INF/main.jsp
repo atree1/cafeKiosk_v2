@@ -53,17 +53,18 @@
 			</div>
 			<!-- /.row -->
 			<style>
-				@media ( min-width : 1200px) {
-					.col-lg-3 {
-						width:50% !important
-					}
+			@media ( min-width : 1200px) {
+				.col-lg-3 {
+					width: 50% !important
 				}
-				@media (min-width: 768px){
+			}
+			
+			@media ( min-width : 768px) {
 				#page-wrapper {
-				max-width:800px;
-				margin:0 auto;
+					max-width: 800px;
+					margin: 0 auto;
 				}
-				}
+			}
 			</style>
 			<div class="row">
 				<div class="col-lg-3 col-md-6">

@@ -66,23 +66,23 @@
 				<div class="col-lg-6">
 
 					<div class="panel panel-default">
-						<div class="panel-heading"></div>
+						<div class="panel-heading"><h3>음료</h3></div>
 						<!-- /.panel-heading -->
 
 						<div class="panel-body" width="300px">
 							<form action="/user/order" method="POST">
 
 								<div style="margin-bottom: 20px">
-									<h1>음료</h1>
+									
 
 									<c:forEach var="drink" items="${drinkList}">
-										<table style="width: 30%; margin: 10px; display: inline;">
+										<table class="table" style="width: 30%; margin: 20px; display: inline;">
 											<tr>
-												<th><img
-													src="http://10.10.10.93:8080/getFile?fname=s_${drink.img}" /></th>
+												<td colspan=2><img
+													src="http://10.10.10.93:8080/getFile?fname=s_${drink.img}" /></td>
 											</tr>
 											<tr>
-												<td>${drink.menu}</td>
+												<td colspan=2>${drink.menu}</td>
 											</tr>
 											<tr>
 												<td>가격: ${drink.price}</td>
@@ -105,18 +105,18 @@
 						<!-- /.panel-body -->
 					</div>
 					<div class="panel panel-default">
-						<div class="panel-heading"></div>
+						<div class="panel-heading"><h3>디저트</h3></div>
 						<div class="panel-body" width="300px">
 
-							<h1>디저트</h1>
+							
 							<c:forEach var="dessert" items="${dessertList}">
-								<table style="width: 30%; margin: 10px; display: inline;"">
+								<table class="table" style="width: 30%; margin: 10px; display: inline;"">
 									<tr>
-										<th><img
-											src="http://10.10.10.93:8080/getFile?fname=s_${dessert.img}" /></th>
+										<td colspan=2><img
+											src="http://10.10.10.93:8080/getFile?fname=s_${dessert.img}" /></td>
 									</tr>
 									<tr>
-										<td>${dessert.menu}</td>
+										<td colspan=2>${dessert.menu}</td>
 									</tr>
 									<tr>
 										<td>가격: ${dessert.price}</td>
@@ -136,7 +136,7 @@
 
 						</div>
 
-						<button class="btn btn-primary" style="margin-bottom: 5px">주문하기</button>
+						<button class="btn btn-primary" style="margin: 20px 10px 20px 30px">주문하기</button>
 						</form>
 						<button class="btn btn-danger" onClick="window.location.reload()">취소</button>
 					</div>

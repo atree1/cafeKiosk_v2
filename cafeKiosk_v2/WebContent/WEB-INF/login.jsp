@@ -34,25 +34,30 @@
 </head>
 
 <body>
-
-   <div class="container">
-      <div class="row">
-         <div class="col-md-4 col-md-offset-4">
+	<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
             <div class="login-panel panel panel-default">
-               <div class="panel-heading">
-                  <h3 class="panel-title">Please Sign In</h3>
-               </div>
-               <div class="panel-body">
-                  <form method="post">
-                     <input type="text" name="owid"></br> <input type="text"
-                        name="owpw"></br>
-                     <button>login</button>
-                  </form>
-               </div>
+                <div class="panel-heading">
+                    <h3 class="panel-title">Please Sign In</h3>
+                </div>
+                <div class="panel-body">
+                    <form method="post">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="id" name="owid" type="text" autofocus>
+                            </div>
+                            <div class="form-group"> 
+                                <input class="form-control" placeholder="Password" name="owpw" type="password">
+                            </div>
+                            <button class="btn btn-lg btn-success btn-block">login</button>
+                        </fieldset>
+                    </form>
+                </div>
             </div>
-         </div>
-      </div>
-   </div>
+        </div>
+    </div>
+</div>
 
    <!-- jQuery -->
    <script src="../vendor/jquery/jquery.min.js"></script>

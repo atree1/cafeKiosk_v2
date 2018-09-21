@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form>
+<form method="POST">
 
 	<h1>음료</h1>
 
@@ -60,6 +60,9 @@
 			</tr>
 		</table>
 	</c:forEach>
+	
+	<button>주문하기</button>
 </form>
+<button>취소</button>
 </body>
 </html>

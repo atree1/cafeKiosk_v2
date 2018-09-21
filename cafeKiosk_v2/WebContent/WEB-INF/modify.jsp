@@ -5,7 +5,7 @@
 
 
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
 	<input type="hidden" name="mno" value="${menu.mno}">
 
 	<div class="form-group">
@@ -28,14 +28,15 @@
 	</div>
 	
 
+	<img src="http://localhost:8080/getFile?fname=s_${menu.img}"/>
 	<div class="form-group">
-		<label>이미지</label> <input class="form-control" type="text" name="img"
-			value="${menu.img}">
+		<input class="form-control" type='file' name='img'  multiple="multiple">
 	</div>
-</form>
+	
 	<button class="btn btn-primary">수정</button>
-
 </form>
+	
+
 <form method="post" action="/store/remove">
 	<input type="hidden" name="mno" value="${menu.mno}">
 	<button class="btn btn-danger">삭제</button>

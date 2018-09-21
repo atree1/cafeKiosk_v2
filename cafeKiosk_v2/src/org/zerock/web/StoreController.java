@@ -1,16 +1,26 @@
 package org.zerock.web;
 
+import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.imageio.ImageIO;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
+import org.apache.commons.io.IOUtils;
+import org.imgscalr.Scalr;
 import org.zerock.dao.MenuDAO;
 import org.zerock.dao.OrderDetailDAO;
 import org.zerock.dao.StoreDAO;
@@ -38,24 +48,78 @@ public class StoreController extends AbstractController {
     public String writePOST(HttpServletRequest req, HttpServletResponse resp)throws Exception{
         System.out.println("writePOST.......................");
         req.setCharacterEncoding("UTF-8");
- 
-      String menu = req.getParameter("menu");
-      String priceStr = req.getParameter("price");
-      String img = req.getParameter("img");
-      String category = req.getParameter("category");
+        
+        String menu = req.getParameter("menu");
+        String priceStr = req.getParameter("price");
+        String img = req.getParameter("img");
+        String category = req.getParameter("category");
+       
+        int price = Converter.getInt(priceStr, -1);
+
+        MenuVO vo = new MenuVO();
+        
+        vo.setSno(sno);
+        vo.setMenu(menu);
+        vo.setImg(img);
+        vo.setPrice(price);
+        vo.setCategory(category);
+        
+        System.out.println("before----------------------------------");
+
+        System.out.println(vo);
+        
+        System.out.println("before----------------------------------");
+        
+        
+        
+        
+        
+        Collection<Part> parts = req.getParts();
+
+		parts.stream().filter(part -> part.getContentType() != null).forEach(part -> {
+			System.out.println(part.getContentType());
+			System.out.println(part.getSubmittedFileName());
+			System.out.println("---------------------------");
+			System.out.println(part.getName());
+			String uploadName =part.getSubmittedFileName();
+			
+			try {
+				InputStream in = part.getInputStream();
+				FileOutputStream fos = new FileOutputStream("C:\\zzz\\upload\\" + uploadName);
+
+				IOUtils.copy(in, fos);
+				
+				if(ExtChecker.check(uploadName)) {
+				// Make Thumbnail image
+				BufferedImage bImage = ImageIO.read(new FileInputStream("C:\\zzz\\upload\\" + uploadName));
+				BufferedImage thumbnail = Scalr.resize(bImage, Scalr.Method.SPEED, Scalr.Mode.FIT_TO_WIDTH, 150, 100,
+						Scalr.OP_ANTIALIAS);
+				
+				FileOutputStream thfos = new FileOutputStream("C:\\zzz\\upload\\s_" + uploadName);
+				ImageIO.write(thumbnail, "jpg", thfos);
+				thfos.close();
+				}
+				in.close();
+				fos.close();
+				
+				vo.setImg(uploadName);
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		});
+
+        System.out.println("after----------------------------------");
+
+        System.out.println(vo);
+        
+        System.out.println("after----------------------------------");
+        
+		
+		
+		dao.addMenu(vo);
      
-      int price = Converter.getInt(priceStr, -1);
-
-      MenuVO vo = new MenuVO();
-      
-      vo.setSno(sno);
-      vo.setMenu(menu);
-      vo.setImg(img);
-      vo.setPrice(price);
-      vo.setCategory(category);
-
-      dao.addMenu(vo);
-      
       return "redirect:/store/list";
    }
    public String listGET(HttpServletRequest req, HttpServletResponse resp) throws Exception {

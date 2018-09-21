@@ -19,21 +19,7 @@
         </div>
         <!-- /.row -->
 
-        <script>
-            function change(obj) {
-                var sizeValue=obj.options[obj.selectedIndex].value;
-                console.log(sizeValue);
-                self.location="list?page=1&size="+sizeValue;
-            }
-
-        </script>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="panel panel-default">
-                    <!-- /.panel-heading -->
-                    <div class="panel-body">
-                        <h2>${pageMaker}</h2>
-                        <table width="100%" class="table table-striped table-bordered table-hover" >
+      
     <h1>음료 메뉴 </h1>
              <c:forEach var="menu1" items="${drinkList}">
 	<tr class="odd gradeX">
@@ -49,7 +35,7 @@
 
 	</tr>
 </c:forEach>
-	    <h1>디저트 메튜</h1>
+	    <h1>디저트 메뉴</h1>
              <c:forEach var="menu2" items="${dessertList}">
 	<tr class="odd gradeX">
 		<td>${menu2.mno}</td>

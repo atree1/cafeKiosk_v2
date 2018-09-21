@@ -5,7 +5,7 @@
 
 
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
 
 	<div class="form-group">
 		<label> 메뉴이름</label> <input class="form-control" type="text"

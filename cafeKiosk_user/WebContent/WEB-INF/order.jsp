@@ -65,26 +65,24 @@
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="panel panel-default">
-						<div class="panel-heading"><h1>주문번호:${ono}</h1></div>
+						<div class="panel-heading"><h3>주문번호:${ono}</h3></div>
 						<div class="panel-body" width="300px">
 
 							
 							<c:forEach var="menu1" items="${orderList}">
 								<tr class="odd gradeX">
-									<h2>
-										<td>${menu1.mno}${menu1.menu } 가격:${menu1.price }
-											수량:${menu1.qty }</td>
-										</h1>
+									<h4>
+										<td><strong>[${menu1.mno}]</strong>&nbsp; [${menu1.menu}] &nbsp; [가격: ${menu1.price}원]
+											[수량: ${menu1.qty }]</td>
+									</h4>
 								</tr>
 							</c:forEach>
-							<h1>총 주문금액: ${total }</h1>
+							<h3>==========================</h3>
+							<h3>총 주문금액: ${total}원</h3>
 							<a href="/user/list"><button class="btn btn-primary"
-									style="margin-bottom: 5px">메인</button></a>
-
-
+									style="margin: 20px 0 10px">메인</button></a>
 						</div>
 
-						
 					</div>
 					<!-- /.panel-body -->
 				</div>

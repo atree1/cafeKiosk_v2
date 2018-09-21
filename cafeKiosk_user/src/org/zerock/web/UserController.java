@@ -13,6 +13,14 @@ import org.zerock.domain.MenuVO;
 public class UserController extends AbstractController{
 	
 	MenuDAO dao = new MenuDAO();
+	public String listGET(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+		int sno = 1;
+		
+	      System.out.println("listGET.......................");
+	      req.setAttribute("drinkList", dao.getDrinkList(sno));
+	      req.setAttribute("dessertList", dao.getDessertList(sno));
+	      return "list";
+	   }
 	
 	@Override
 	public String getBasic() {

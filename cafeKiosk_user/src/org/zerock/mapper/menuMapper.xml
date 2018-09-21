@@ -15,5 +15,8 @@ select * from tbl_menu
 where sno = #{sno} and category='디저트'
 order by mno
 </select> 
-
+<select id="getMenu" resultType="MenuVO">
+select * from tbl_menu
+where mno=#{mno}
+</select>
 </mapper>

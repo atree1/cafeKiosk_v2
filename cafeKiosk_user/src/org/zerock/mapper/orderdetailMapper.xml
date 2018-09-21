@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.OrderDetailMapper">
+
+
+
+<insert id="create" parameterType="OrderDetailVO">
+insert into tbl_order_detail(ono,mno,sno,qty,state)
+values(#{ono},#{mno},#{sno},#{qty},'준비중')
+</insert>
+<select id="getDetail" resultType="OrderDetailVO">
+<![CDATA[
+select ono ,m.sno,m.mno,m.menu, m.price,qty,regdate 
+from(
+select mno, sno, menu, price
+from tbl_menu
+where sno=1
+)m ,tbl_order_detail od 
+where od.ono=1 and od.mno=m.mno
+]]>
+</select>
+
+<select id="getAllDetail" resultType="OrderDetailVO">
+<![CDATA[
+select ono ,m.sno,m.mno,m.menu, m.price,qty,regdate 
+from(
+select sno,mno,menu,price
+from tbl_menu
+where sno=#{sno}
+)m ,tbl_order_detail od
+where od.mno=m.mno
+order by ono
+]]>
+</select>
+
+<select id="getCount" resultType="int">
+<![CDATA[
+select count (*) from (select ono ,m.sno,m.mno,m.menu, m.price,qty,regdate 
+from(
+select sno,mno,menu,price
+from tbl_menu
+where sno=#{sno}
+)m ,tbl_order_detail od
+where od.mno=m.mno)
+]]>
+</select>
+
+<select id="printOrder" parameterType="map" resultType="OrderDetailVO">
+<![CDATA[
+select ono ,m.sno, m.price,qty
+from(
+select sno,mno,menu,price
+from tbl_menu
+where sno=#{sno}
+)m ,tbl_order_detail od
+where ono=#{ono} and od.mno=m.mno
+]]>
+</select>
+
+
+</mapper>

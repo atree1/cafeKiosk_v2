@@ -37,5 +37,15 @@ public class MenuDAO {
 
 		return list;
 	}
+	public MenuVO getMenu(int mno) {
+		MenuVO vo=new MenuVO();
+		try (SqlSession session = MyBatisLoader.sqlSessionFactory.openSession(true)) {
 
+			vo = session.selectOne(prefix + ".getMenu", mno);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
 }

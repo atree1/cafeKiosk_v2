@@ -7,12 +7,21 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.zerock.domain.OrderDetailVO;
-import org.zerock.domain.OwnerVO;
+import org.zerock.domain.OrderVO;
 
 public class OrderDetailDAO {
 
 	private final String prefix = "org.zerock.mapper.OrderDetailMapper";
 
+	public void addOrderDetail(OrderDetailVO vo) {
+		try (SqlSession session = MyBatisLoader.sqlSessionFactory.openSession(true)) {
+			
+			session.insert(prefix+".create",vo);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	public List<OrderDetailVO> getDetail(int ono) {
 
 		try (SqlSession session = MyBatisLoader.sqlSessionFactory.openSession(true)) {

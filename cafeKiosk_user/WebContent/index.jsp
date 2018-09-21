@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<meta http-equiv="refresh" content="0;url=http://localhost:8080/user/list">
 <h1>Test</h1>
 </body>
 </html>

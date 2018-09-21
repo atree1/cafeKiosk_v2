@@ -20,13 +20,11 @@
         <!-- /.row -->
 
       
-    <h1>주문번호:${ono } </h1>
+    <h1>주문번호:${ono} </h1>
              <c:forEach var="menu1" items="${orderList}">
 	<tr class="odd gradeX">
-		<td>${menu1.mno}</td>
-		<td>${menu1.menu }</td>
-		<td>${menu1.price }</td>
-		<td>${menu1.qty }</td>
+		<h2><td>${menu1.mno} ${menu1.menu } 가격:${menu1.price } 수량:${menu1.qty }</td></h1>
+
 		
 	</tr>
 </c:forEach>

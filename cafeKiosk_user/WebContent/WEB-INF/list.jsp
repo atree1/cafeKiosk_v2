@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form method="POST" action="/user/order">
+<form method="POST">
 
 	<h1>음료</h1>
 
@@ -24,7 +24,6 @@
 			<tr>
 				<td>수량: 
 				<select name="qty_drink">
-					<option selected="selected" value="${drink.mno}_0">0</option>
 					<option value="${drink.mno}_1">1</option>
 					<option value="${drink.mno}_2">2</option>
 					<option value="${drink.mno}_3">3</option>
@@ -50,7 +49,6 @@
 			<tr>
 				<td>수량:
 					<select name="qty_dessert">
-					<option selected="selected" value="${dessert.mno}_0">0</option>
 					<option value="${dessert.mno}_1">1</option>
 					<option value="${dessert.mno}_2">2</option>
 					<option value="${dessert.mno}_3">3</option>
